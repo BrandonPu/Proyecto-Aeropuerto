@@ -50,7 +50,7 @@ public class PasajeroController {
         Map<String, String> response = new HashMap<>();
         try {
             pasajeroService.guardarPasajero(pasajero);
-            response.put("message", "El Pasajero se creo con exito");
+            response.put("message", "El Pasajero se creo con exito!");
             return ResponseEntity.ok(response);
         } catch (Exception e) {
             response.put("message", "Error");
@@ -85,7 +85,7 @@ public class PasajeroController {
         try {
             Pasajero pasajero = pasajeroService.buscarPasajeroPorId(id);
             pasajeroService.eliminarPasajero(pasajero);
-            response.put("message", "Pasajero elimado con exito");
+            response.put("message", "El Pasajero a sido elimado con exito");
             return ResponseEntity.ok(response);
         } catch (Exception e) {
             response.put("message", "Error");
