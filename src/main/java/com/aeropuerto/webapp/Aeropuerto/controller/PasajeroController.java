@@ -54,11 +54,12 @@ public class PasajeroController {
             return ResponseEntity.ok(response);
         } catch (Exception e) {
             response.put("message", "Error");
-            response.put("err", "Hubo un error al crear el Pasajero");
+            response.put("err", "Hubo un error al crear el Pasajero!");
             return ResponseEntity.badRequest().body(response);
         }
     }
 
+    // editor
     @PutMapping("/pasajeros")
     public ResponseEntity<Map<String, String>> editarPasajero(@RequestParam Long id,
             @RequestBody Pasajero pasajeroNuevo) {
