@@ -86,11 +86,11 @@ public class PasajeroController {
         try {
             Pasajero pasajero = pasajeroService.buscarPasajeroPorId(id);
             pasajeroService.eliminarPasajero(pasajero);
-            response.put("message", "El Pasajero a sido elimado con exito");
+            response.put("message", "El Pasajero a sido elimado con exito!");
             return ResponseEntity.ok(response);
         } catch (Exception e) {
             response.put("message", "Error");
-            response.put("err", "Hubo un error al Eliminar el Pasajero");
+            response.put("err", "Hubo un error al Eliminar el Pasajero!");
             return ResponseEntity.badRequest().body(response);
         }
     }
