@@ -28,5 +28,4 @@ public class Aerolinea {
     joinColumns = @JoinColumn(name = "aerolineas_id", referencedColumnName = "id"),
     inverseJoinColumns = @JoinColumn(name = "aeropuertos_id", referencedColumnName = "id"))
     private List<Aeropuerto> aeropuertos;
-
 }
