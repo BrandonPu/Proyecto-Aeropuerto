@@ -20,4 +20,5 @@ public class Empleado {
     private String nombre;
     private String posicion;
     private String departamento;
+
 }

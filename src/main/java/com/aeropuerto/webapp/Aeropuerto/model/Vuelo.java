@@ -26,11 +26,12 @@ public class Vuelo {
     private String numeroVuelo;
     private String estadoVuelo;
     private Date fechaSalida;
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Aerolinea aerolinea;
     @ManyToMany
     @JoinTable(name = "vuelos_empleados",
     joinColumns = @JoinColumn(name = "vuelos_id", referencedColumnName = "id"),
     inverseJoinColumns = @JoinColumn(name = "empleados_id", referencedColumnName = "id"))
     private List<Empleado> empleados;
+
 }
