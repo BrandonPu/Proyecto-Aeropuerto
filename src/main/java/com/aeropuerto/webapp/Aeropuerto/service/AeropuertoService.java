@@ -25,8 +25,8 @@ public class AeropuertoService implements IAeropuertoService{
     }
 
     @Override
-    public Aeropuerto guardarAeropuerto(Aeropuerto aeropuerto) {
-        return aeropuertoRepository.save(aeropuerto);
+    public void guardarAeropuerto(Aeropuerto aeropuerto) {
+        aeropuertoRepository.save(aeropuerto);
     }
 
     @Override

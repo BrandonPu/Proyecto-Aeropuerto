@@ -36,7 +36,7 @@ public class PasajeroController {
         }
     }
 
-    @GetMapping("/pasajeros")
+    @GetMapping("/pasajero")
     public ResponseEntity<Pasajero> buscarPasajeroPorId(@RequestParam Long id) {
         try {
             return ResponseEntity.ok(pasajeroService.buscarPasajeroPorId(id));
@@ -45,7 +45,7 @@ public class PasajeroController {
         }
     }
 
-    @PostMapping("/pasajeros")
+    @PostMapping("/pasajero")
     public ResponseEntity<Map<String, String>> agregarPasajero(@RequestBody Pasajero pasajero) {
         Map<String, String> response = new HashMap<>();
         try {
@@ -60,9 +60,8 @@ public class PasajeroController {
     }
 
     // editor
-    @PutMapping("/pasajeros")
-    public ResponseEntity<Map<String, String>> editarPasajero(@RequestParam Long id,
-            @RequestBody Pasajero pasajeroNuevo) {
+    @PutMapping("/pasajero")
+    public ResponseEntity<Map<String, String>> editarPasajero(@RequestParam Long id, @RequestBody Pasajero pasajeroNuevo) {
         Map<String, String> response = new HashMap<>();
         try {
             Pasajero pasajero = pasajeroService.buscarPasajeroPorId(id);
@@ -80,7 +79,7 @@ public class PasajeroController {
         }
     }
 
-    @DeleteMapping("/pasajeros")
+    @DeleteMapping("/pasajero")
     public ResponseEntity<Map<String, String>> eliminarPasajero(@RequestParam Long id) {
         Map<String, String> response = new HashMap<>();
         try {

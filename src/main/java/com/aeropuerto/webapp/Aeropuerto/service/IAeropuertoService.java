@@ -10,7 +10,7 @@ public interface IAeropuertoService {
 
     public Aeropuerto buscarAeropuertoPorId(Long id);
 
-    public Aeropuerto guardarAeropuerto(Aeropuerto aeropuerto);
+    public void guardarAeropuerto(Aeropuerto aeropuerto);
 
     public void eliminarAeropuerto(Aeropuerto aeropuerto);
 

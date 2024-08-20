@@ -22,6 +22,6 @@ public class Pasajero {
     private String nombre;
     private String apellido;
     private String nacionalidad;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Vuelo vuelo;
 }

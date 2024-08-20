@@ -22,6 +22,6 @@ public class Terminal {
     private String numeroTerminal;
     private String capacidad;
     private String serviciosDisponibles;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Aeropuerto aeropuerto;
 }

@@ -5,16 +5,15 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.aeropuerto.webapp.Aeropuerto.model.Terminal;
@@ -24,7 +23,7 @@ import jakarta.servlet.http.HttpServlet;
 
 @Controller
 @RestController
-@RequestMapping(value = "terminal")
+@RequestMapping(value = "")
 public class TerminalController extends HttpServlet{
     @Autowired
     TerminalService terminalService;
@@ -51,8 +50,8 @@ public class TerminalController extends HttpServlet{
         }
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Terminal> buscarTerminalPorId(@PathVariable Long id){
+    @GetMapping("/terminal")
+    public ResponseEntity<Terminal> buscarTerminalPorId(@RequestParam Long id){
         try {
             return ResponseEntity.ok(terminalService.buscarTerminalPorId(id));
         } catch (Exception e) {
@@ -61,7 +60,7 @@ public class TerminalController extends HttpServlet{
     }
 
     @PutMapping("/terminal")
-    public ResponseEntity<Map<String, String>> editarTerminal(@RequestBody Long id, @RequestBody Terminal terminalNueva){
+    public ResponseEntity<Map<String, String>> editarTerminal(@RequestParam Long id, @RequestBody Terminal terminalNueva){
         Map<String, String> response = new HashMap<>();
         try {
             Terminal terminal = terminalService.buscarTerminalPorId(id);
@@ -69,6 +68,7 @@ public class TerminalController extends HttpServlet{
             terminal.setCapacidad(terminalNueva.getCapacidad());
             terminal.setNumeroTerminal(terminalNueva.getNumeroTerminal());
             terminal.setServiciosDisponibles(terminalNueva.getServiciosDisponibles());
+            terminalService.guardarTerminal(terminal);
             response.put("message", "La terminal se edito correctamente");
             return ResponseEntity.ok(response);
         } catch (Exception e) {
@@ -78,7 +78,7 @@ public class TerminalController extends HttpServlet{
     }
 
     @DeleteMapping("/terminal")
-    public ResponseEntity<Map<String, String>> eliminarTerminal(@RequestBody Long id){
+    public ResponseEntity<Map<String, String>> eliminarTerminal(@RequestParam Long id){
         Map<String, String> response = new HashMap<>();
         try {
             Terminal terminal = terminalService.buscarTerminalPorId(id);
