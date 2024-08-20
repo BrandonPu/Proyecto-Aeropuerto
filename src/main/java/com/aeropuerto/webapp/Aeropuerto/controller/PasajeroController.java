@@ -21,7 +21,7 @@ import com.aeropuerto.webapp.Aeropuerto.service.PasajeroService;
 
 @Controller
 @RestController
-@RequestMapping("")
+@RequestMapping(value = "")
 public class PasajeroController {
 
     @Autowired
