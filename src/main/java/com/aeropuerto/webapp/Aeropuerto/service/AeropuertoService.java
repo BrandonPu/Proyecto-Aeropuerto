@@ -25,13 +25,30 @@ public class AeropuertoService implements IAeropuertoService{
     }
 
     @Override
-    public void guardarAeropuerto(Aeropuerto aeropuerto) {
-        aeropuertoRepository.save(aeropuerto);
+    public Boolean guardarAeropuerto(Aeropuerto aeropuerto) {
+        if (!verificarIataDuplicado(aeropuerto)) {
+            aeropuertoRepository.save(aeropuerto);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
     public void eliminarAeropuerto(Aeropuerto aeropuerto) {
         aeropuertoRepository.delete(aeropuerto);
+    }
+
+    @Override
+    public Boolean verificarIataDuplicado(Aeropuerto nuevoAeropuerto) {
+        List<Aeropuerto> aeropuertos = listarAeropuertos();
+        Boolean flag = false;
+        for (Aeropuerto aeropuerto : aeropuertos) {
+            if (nuevoAeropuerto.getIata().equalsIgnoreCase(aeropuerto.getIata()) && !aeropuerto.getId().equals(nuevoAeropuerto.getId())) {
+                flag = true;
+            }
+        }
+        return flag;
     }
 
 }

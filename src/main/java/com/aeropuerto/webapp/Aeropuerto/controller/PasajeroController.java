@@ -49,9 +49,15 @@ public class PasajeroController {
     public ResponseEntity<Map<String, String>> agregarPasajero(@RequestBody Pasajero pasajero) {
         Map<String, String> response = new HashMap<>();
         try {
-            pasajeroService.guardarPasajero(pasajero);
-            response.put("message", "El Pasajero se creo con exito!");
-            return ResponseEntity.ok(response);
+            if (pasajeroService.guardarPasajero(pasajero)) {
+                pasajeroService.guardarPasajero(pasajero);
+                response.put("message", "El Pasajero se creo con exito!");
+                return ResponseEntity.ok(response);
+            } else {
+                response.put("message", "Error");
+                response.put("err", "El nombre y el apellido no puede conterner números.");
+                return ResponseEntity.badRequest().body(response);
+            }
         } catch (Exception e) {
             response.put("message", "Error");
             response.put("err", "Hubo un error al crear el Pasajero!");

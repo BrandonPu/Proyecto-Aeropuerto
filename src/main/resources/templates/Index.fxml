@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aeropuerto.webapp.Aeropuerto.controller.FXController.IndexController">
+   <children>
+      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="1000.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Modulos">
+            <items>
+              <MenuItem fx:id="btnAerolineas" mnemonicParsing="false" onAction="#handleButtonAction" text="Aerolineas" />
+                  <MenuItem fx:id="btnAeropuertos" mnemonicParsing="false" onAction="#handleButtonAction" text="Aeropuertos" />
+                  <MenuItem fx:id="btnEmpleados" mnemonicParsing="false" onAction="#handleButtonAction" text="Empleados" />
+                  <MenuItem fx:id="btnPasajeros" mnemonicParsing="false" onAction="#handleButtonAction" text="Pasajeros" />
+                  <MenuItem fx:id="btnTerminales" mnemonicParsing="false" onAction="#handleButtonAction" text="Terminales" />
+                  <MenuItem fx:id="btnVuelos" mnemonicParsing="false" onAction="#handleButtonAction" text="Vuelos" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Reportes">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Ayuda">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <ImageView fitHeight="600.0" fitWidth="1000.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/Index.png"/>
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

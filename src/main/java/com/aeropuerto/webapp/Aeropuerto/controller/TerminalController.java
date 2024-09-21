@@ -37,25 +37,29 @@ public class TerminalController extends HttpServlet{
         }
     }
 
-    @PostMapping("/terminal")
-    public ResponseEntity<Map<String, String>> agregarTerminal(@RequestBody Terminal terminal){
-        Map<String, String> response = new HashMap<>();
-        try {
-            terminalService.guardarTerminal(terminal);
-            response.put("message", "La terminal se creo correctamente");
-            return ResponseEntity.ok(response);
-        } catch (Exception e) {
-            response.put("err", "Error al crear la terminal");
-            return ResponseEntity.badRequest().body(null);
-        }
-    }
-
     @GetMapping("/terminal")
     public ResponseEntity<Terminal> buscarTerminalPorId(@RequestParam Long id){
         try {
             return ResponseEntity.ok(terminalService.buscarTerminalPorId(id));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(null);
+        }
+    }
+
+    @PostMapping("/terminal")
+    public ResponseEntity<Map<String, String>> agregarTerminal(@RequestBody Terminal terminal){
+        Map<String, String> response = new HashMap<>();
+        try {
+            if (terminalService.guardarTerminal(terminal)) {
+                response.put("message", "La terminal se creo correctamente");
+                return ResponseEntity.ok(response);
+            } else {
+                response.put("err", "La terminal supero su capacidad máxima.");
+                return ResponseEntity.badRequest().body(response);
+            }     
+        } catch (Exception e) {
+            response.put("err", "Error al crear la terminal");
+            return ResponseEntity.badRequest().body(response);
         }
     }
 

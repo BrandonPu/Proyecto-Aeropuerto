@@ -24,12 +24,30 @@ public class EmpleadoService implements IEmpleadoService{
     }
 
     @Override
-    public void guardarEmpleado(Empleado empleado) {
-        empleadoRepository.save(empleado);
+    public Boolean guardarEmpleado(Empleado empleado) {
+        if (posicionPermitida(empleado)) {
+            empleadoRepository.save(empleado);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
     public void eliminarEmpleado(Empleado empleado) {
         empleadoRepository.delete(empleado);
+    }
+
+    @Override
+    public Boolean posicionPermitida(Empleado nuevoEmpleado) {
+        boolean flag = false;
+        String [] posiciones = {"Gerente", "Desarrollador", "Limpieza", "Piloto", "Copiloto", "Asistente"}; //Crea un array de tipo String con las posiciones aceptadas.
+
+        for (String posicion : posiciones) { // for each recorre cada parte del arreglo asignandole el valor a "posicion"
+            if (nuevoEmpleado.getPosicion().equalsIgnoreCase(posicion)) { //verifica si la "posicion" está dentro de las posiciones aceptadas.
+                flag = true;
+            }
+        }
+        return flag;
     }
 }

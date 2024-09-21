@@ -9,7 +9,9 @@ public interface ITerminalService {
 
     public Terminal buscarTerminalPorId(Long id);
     
-    public void guardarTerminal(Terminal terminal);
+    public Boolean guardarTerminal(Terminal terminal);
 
     public void eliminarTerminal(Terminal terminal);
+
+    public Boolean verificarCapacidadMaxima(Terminal nuevaTerminal);
 }

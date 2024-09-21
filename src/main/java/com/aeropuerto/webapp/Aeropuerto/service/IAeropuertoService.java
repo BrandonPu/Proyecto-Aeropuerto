@@ -10,8 +10,9 @@ public interface IAeropuertoService {
 
     public Aeropuerto buscarAeropuertoPorId(Long id);
 
-    public void guardarAeropuerto(Aeropuerto aeropuerto);
+    public Boolean guardarAeropuerto(Aeropuerto aeropuerto);
 
     public void eliminarAeropuerto(Aeropuerto aeropuerto);
 
+    public Boolean verificarIataDuplicado(Aeropuerto nuevoAeropuerto);
 }

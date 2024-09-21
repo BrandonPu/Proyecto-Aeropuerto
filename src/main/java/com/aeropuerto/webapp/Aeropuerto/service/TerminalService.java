@@ -25,8 +25,13 @@ public class TerminalService implements ITerminalService{
     }
 
     @Override
-    public void guardarTerminal(Terminal terminal) {
-        terminalRepository.save(terminal);
+    public Boolean guardarTerminal(Terminal terminal) {
+        if (!verificarCapacidadMaxima(terminal)) {
+            terminalRepository.save(terminal);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
@@ -34,4 +39,12 @@ public class TerminalService implements ITerminalService{
         terminalRepository.delete(terminal);
     }
 
+    @Override
+    public Boolean verificarCapacidadMaxima(Terminal nuevaTerminal) {
+        Boolean flag = false;
+        if (Integer.parseInt(nuevaTerminal.getCapacidad()) > 100) { //Parsea el String y lo pasa a int para verificar si el dato es mayor a 100.
+            flag = true;
+        }
+        return flag;
+    }
 }

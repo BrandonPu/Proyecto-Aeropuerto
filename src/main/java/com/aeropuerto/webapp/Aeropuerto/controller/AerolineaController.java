@@ -46,9 +46,13 @@ public class AerolineaController {
     public ResponseEntity<Map<String, String>> guardarAerolinea(@RequestBody Aerolinea aerolinea){ // Agregar
         Map<String, String> response = new HashMap<>();
         try{
-            aerolineaService.guardarAerolinea(aerolinea);
-            response.put("message", "La aerolinea se creo con exito!");
-            return ResponseEntity.ok(response);
+            if (aerolineaService.guardarAerolinea(aerolinea)) {
+                response.put("message", "La aerolinea se creo con exito!");
+                return ResponseEntity.ok(response);
+            } else {
+                response.put("err", "Hubo un error al crear la aerolinea! ");
+                return ResponseEntity.badRequest().body(response);
+            }
         }catch(Exception e){
             response.put("err", "Hubo un error al crear la aerolinea! ");
             return ResponseEntity.badRequest().body(response);
@@ -64,9 +68,13 @@ public class AerolineaController {
             aerolinea.setNombre(aerolineaNueva.getNombre());
             aerolinea.setPaisOrigen(aerolineaNueva.getPaisOrigen());
             aerolinea.setAeropuertos(aerolinea.getAeropuertos());
-            aerolineaService.guardarAerolinea(aerolinea);
-            response.put("message", "La aerolinea se edito con exito!");
-            return ResponseEntity.ok(response);
+            if (aerolineaService.guardarAerolinea(aerolinea)) {
+                response.put("message", "La aerolinea se edito con exito!");
+                return ResponseEntity.ok(response);
+            } else {
+                response.put("message", "Hubo un error al editar la aerolinea!");
+                return ResponseEntity.badRequest().body(response);
+            }         
         }catch(Exception e){
             response.put("message", "Hubo un error al editar la aerolinea!");
             return ResponseEntity.badRequest().body(response);

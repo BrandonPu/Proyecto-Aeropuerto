@@ -10,7 +10,9 @@ public interface IAerolineaService {
 
     public Aerolinea buscarAerolineaPorId(Long id);
 
-    public Aerolinea guardarAerolinea(Aerolinea aerolinea);
+    public Boolean guardarAerolinea(Aerolinea aerolinea);
 
     public void eliminarAerolinea(Aerolinea aerolinea);
+
+    public Boolean verificarNombreAerolinea(Aerolinea nuevaAerolinea);
 }

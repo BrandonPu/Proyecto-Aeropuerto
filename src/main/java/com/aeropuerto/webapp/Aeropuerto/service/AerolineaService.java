@@ -25,13 +25,30 @@ public class AerolineaService implements IAerolineaService{
     }
 
     @Override
-    public Aerolinea guardarAerolinea(Aerolinea aerolinea) {
-        return aerolineaRepository.save(aerolinea);
+    public Boolean guardarAerolinea(Aerolinea aerolinea) {
+        if (!verificarNombreAerolinea(aerolinea)) {
+            aerolineaRepository.save(aerolinea);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
     public void eliminarAerolinea(Aerolinea aerolinea) {
         aerolineaRepository.delete(aerolinea);
+    }
+
+    @Override
+    public Boolean verificarNombreAerolinea(Aerolinea nuevaAerolinea) {
+        List<Aerolinea> aerolineas = listarAerolineas();
+        Boolean flag = false;
+        for (Aerolinea aerolinea : aerolineas) {
+            if (nuevaAerolinea.getNombre().equalsIgnoreCase(aerolinea.getNombre()) && !aerolinea.getId().equals(nuevaAerolinea.getId())) {
+                flag = true;
+            }
+        }
+        return flag;
     }
 
 }

@@ -49,9 +49,14 @@ public class AeropuertoController {
     public ResponseEntity<Map<String, String>> agregarAeropuerto(@RequestBody Aeropuerto aeropuerto) {
         Map<String, String> response = new HashMap<>();
         try {
-            aeropuertoService.guardarAeropuerto(aeropuerto);
-            response.put("message", "El Aeropuerto se creo con exito");
-            return ResponseEntity.ok(response);
+            if (aeropuertoService.guardarAeropuerto(aeropuerto)) {
+                response.put("message", "El Aeropuerto se creo con exito");
+                return ResponseEntity.ok(response);
+            } else {
+                response.put("message", "Error");
+                response.put("err", "IATA Duplicada, no se creo el aeropuerto.");
+                return ResponseEntity.badRequest().body(response);
+            }       
         } catch (Exception e) {
             response.put("message", "Error");
             response.put("err", "Hubo un error al crear el Aeropuerto");
@@ -69,9 +74,13 @@ public class AeropuertoController {
             aeropuerto.setNombre(aeropuertoNuevo.getNombre());
             aeropuerto.setCiudad(aeropuertoNuevo.getCiudad());
             aeropuerto.setPais(aeropuertoNuevo.getPais());
-            aeropuertoService.guardarAeropuerto(aeropuerto);
-            response.put("message", "Aeropuerto modificado con exito");
-            return ResponseEntity.ok(response);
+            if (aeropuertoService.guardarAeropuerto(aeropuerto)) {
+                response.put("message", "Aeropuerto modificado con exito");
+                return ResponseEntity.ok(response);
+            } else {
+                response.put("message", "No se pudo editar el aeropuerto.");
+                return ResponseEntity.ok(response);
+            }     
         } catch (Exception e) {
             response.put("message", "Error");
             response.put("err", "Hubo un error al modificar el Aeropuerto");

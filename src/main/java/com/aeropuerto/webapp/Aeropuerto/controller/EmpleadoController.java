@@ -44,9 +44,15 @@ public class EmpleadoController {
     public ResponseEntity<Map<String, String>> guardarEmpleado(@RequestBody Empleado empleado){
         Map<String, String> response = new HashMap<>();
         try {
-            empleadoService.guardarEmpleado(empleado);
-            response.put("Message", "Se agrego el Empleado con éxito.");
-            return ResponseEntity.ok(response);
+            if (empleadoService.guardarEmpleado(empleado)) {
+                response.put("Message", "Se agrego el Empleado con éxito.");
+                return ResponseEntity.ok(response);
+            } else {
+                response.put("message", "Error");
+                response.put("err", "La posición no esta permitida para el registro.");
+                return ResponseEntity.badRequest().body(response);
+            }
+            
         } catch (Exception e) {
             response.put("message", "Error");
             response.put("err", "Hubo un error al agregar el Empleado.");

@@ -25,12 +25,26 @@ public class VueloService implements IVueloService {
     }
 
     @Override
-    public Vuelo guardarVuelo(Vuelo vuelo) {
-        return vueloRepository.save(vuelo);
+    public Boolean guardarVuelo(Vuelo vuelo) {
+        if (!verificarDatoNull(vuelo)) {
+            vueloRepository.save(vuelo);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
     public void eliminarVuelo(Vuelo vuelo) {
         vueloRepository.delete(vuelo);
+    }
+
+    @Override
+    public Boolean verificarDatoNull(Vuelo nuevoVuelo) {    
+        Boolean flag = false;
+        if (nuevoVuelo.getEstadoVuelo().isEmpty() || nuevoVuelo.getEstadoVuelo() == null) { //Verifica si la cadena está vacia o nula.
+            flag = true;
+        }
+        return flag;
     }   
 }

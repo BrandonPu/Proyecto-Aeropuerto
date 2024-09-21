@@ -10,7 +10,9 @@ public interface IVueloService {
     
     public Vuelo buscarVueloPorId(Long id);
 
-    public Vuelo guardarVuelo(Vuelo vuelo);
+    public Boolean guardarVuelo(Vuelo vuelo);
 
     public void eliminarVuelo(Vuelo vuelo);
+
+    public Boolean verificarDatoNull(Vuelo nuevoVuelo);
 }

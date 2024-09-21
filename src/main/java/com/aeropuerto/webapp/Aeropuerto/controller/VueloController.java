@@ -46,9 +46,14 @@ public class VueloController {
     public ResponseEntity<Map<String, String>> guardarVuelo(@RequestBody Vuelo vuelo){
         Map<String, String> response = new HashMap<>();
         try {
-            vueloService.guardarVuelo(vuelo);
-            response.put("Message", "Se agrego el vuelo con éxito.");
-            return ResponseEntity.ok(response);
+            if (vueloService.guardarVuelo(vuelo)) {
+                response.put("message", "Se agrego el vuelo con éxito.");
+                return ResponseEntity.ok(response);
+            } else {
+                response.put("message", "Error");
+                response.put("message", "El estado del vuelo no puede ser nulo.");
+                return ResponseEntity.badRequest().body(response);
+            }
         } catch (Exception e) {
             response.put("message", "Error");
             response.put("err", "Hubo un error al agregar el vuelo.");
@@ -67,7 +72,7 @@ public class VueloController {
             vuelo.setAerolinea(newVuelo.getAerolinea());
             vuelo.setEmpleados(newVuelo.getEmpleados());
             vueloService.guardarVuelo(vuelo);
-            response.put("Message", "Se edito el vuelo con éxito.");
+            response.put("message", "Se edito el vuelo con éxito.");
             return ResponseEntity.ok(response);
         } catch (Exception e) {
             response.put("message", "Error");

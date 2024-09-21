@@ -10,7 +10,9 @@ public interface IPasajeroService {
 
     public Pasajero buscarPasajeroPorId(Long id);
 
-    public void guardarPasajero(Pasajero pasajero);
+    public Boolean guardarPasajero(Pasajero pasajero);
 
     public void eliminarPasajero(Pasajero pasajero);
+
+    public Boolean verificarNumeroEnDato(Pasajero nuevoPasajero);
 }
