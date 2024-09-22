@@ -20,4 +20,9 @@ public class Empleado {
     private String nombre;
     private String posicion;
     private String departamento;
+    
+    @Override
+    public String toString() {
+        return "Id: " + id + " | " + "Nombre: " + nombre + " | " + "Posición: " + posicion;
+    }
 }

@@ -28,7 +28,7 @@ public class Vuelo {
     private Date fechaSalida;
     @ManyToOne(fetch = FetchType.EAGER)
     private Aerolinea aerolinea;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "vuelos_empleados",
     joinColumns = @JoinColumn(name = "vuelos_id", referencedColumnName = "id"),
     inverseJoinColumns = @JoinColumn(name = "empleados_id", referencedColumnName = "id"))
