@@ -1,16 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aeropuerto.webapp.Aeropuerto.controller.FXController.AeropuertoFXController">
    <children>
-      <Label layoutX="424.0" layoutY="277.0" text="Aeropuerto">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Label>
+      <ImageView fitHeight="600.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/MenuAeropuertos.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="tfId" alignment="CENTER" editable="false" layoutX="14.0" layoutY="120.0" prefHeight="30.0" prefWidth="200.0" promptText="No se coloca Nada" style="-fx-background-radius: 20;" />
+      <TextField fx:id="tfPais" alignment="CENTER" layoutX="14.0" layoutY="433.0" prefHeight="30.0" prefWidth="200.0" promptText="Ingrese El Pais" style="-fx-background-radius: 20;" />
+      <TextField fx:id="tfCiudad" alignment="CENTER" layoutX="14.0" layoutY="354.0" prefHeight="30.0" prefWidth="200.0" promptText="Ingrese la Ciudad" style="-fx-background-radius: 20;" />
+      <TextField fx:id="tfNombre" alignment="CENTER" layoutX="14.0" layoutY="278.0" prefHeight="30.0" prefWidth="200.0" promptText="Ingrese el Nombre" style="-fx-background-radius: 20;" />
+      <TextField fx:id="tfIata" alignment="CENTER" layoutX="14.0" layoutY="195.0" prefHeight="30.0" prefWidth="200.0" promptText="IATA (Que no sea repetido)" style="-fx-background-radius: 20;" />
+      <TableView fx:id="tblAeropuertos" layoutX="358.0" layoutY="135.0" onMouseClicked="#cargarForm" prefHeight="315.0" prefWidth="600.0">
+         <columns>
+            <TableColumn fx:id="colId" minWidth="80.0" prefWidth="75.0" text="ID" />
+            <TableColumn fx:id="colIata" minWidth="120.0" prefWidth="82.4000244140625" text="IATA" />
+            <TableColumn fx:id="colNombre" minWidth="140.0" prefWidth="91.199951171875" text="Nombre" />
+            <TableColumn fx:id="colCiudad" minWidth="140.0" prefWidth="104.800048828125" text="Ciudad" />
+            <TableColumn fx:id="colPais" minWidth="120.0" prefWidth="102.40008544921875" text="Pais" />
+         </columns>
+      </TableView>
+      <Button fx:id="btnGuardar" layoutX="24.0" layoutY="485.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="120.0" style="-fx-background-radius: 25; -fx-background-color: #b2c8d2;" text="Guardar" />
+      <Button fx:id="btnVaciar" layoutX="154.0" layoutY="485.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="120.0" style="-fx-background-radius: 25; -fx-background-color: #b2c8d2;" text="Vaciar Formulario" />
+      <Button fx:id="btnEliminar" layoutX="358.0" layoutY="67.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="120.0" style="-fx-background-radius: 25; -fx-background-color: #b2c8d2;" text="Eliminar" />
+      <Button fx:id="btnRegresar" layoutX="722.0" layoutY="480.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="120.0" style="-fx-background-radius: 25; -fx-background-color: #b2c8d2;" text="Regresar" />
+      <TextField fx:id="tfBuscar" alignment="CENTER" layoutX="639.0" layoutY="74.0" prefHeight="35.0" prefWidth="150.0" promptText="Escribe el Id a buscar " style="-fx-background-radius: 20;" />
+      <Button fx:id="btnBuscar" layoutX="799.0" layoutY="75.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="85.0" style="-fx-background-radius: 20; -fx-background-color: #b2c8d2;" text="Buscar" textAlignment="CENTER">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/BuscarIcono.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>
