@@ -25,3 +25,4 @@ public class Terminal {
     @ManyToOne(fetch = FetchType.EAGER)
     private Aeropuerto aeropuerto;
 }
+
