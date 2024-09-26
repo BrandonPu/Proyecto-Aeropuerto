@@ -62,6 +62,7 @@ public class PasajeroFXController implements Initializable{
         cmbVuelo.setItems(FXCollections.observableList(vueloService.listarVuelos()));
     } 
 
+    //handle
     public void handleButtonAction(ActionEvent event){
         if(event.getSource() == btnGuardar){
             if(tfId.getText().isBlank()){
