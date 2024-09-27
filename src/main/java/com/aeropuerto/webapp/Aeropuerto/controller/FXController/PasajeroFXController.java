@@ -60,6 +60,7 @@ public class PasajeroFXController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         cmbVuelo.setItems(FXCollections.observableList(vueloService.listarVuelos()));
+        cargarDatos();
     } 
 
     public void handleButtonAction(ActionEvent event){
