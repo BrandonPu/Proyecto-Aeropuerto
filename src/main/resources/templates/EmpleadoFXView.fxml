@@ -1,16 +1,162 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aeropuerto.webapp.Aeropuerto.controller.FXController.EmpleadoFXController">
    <children>
-      <Label layoutX="434.0" layoutY="277.0" text="Empleado">
+      <ImageView fitHeight="600.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/MenuEmpleados.jpg" />
+         </image>
+      </ImageView>
+      <TextField fx:id="tfId" editable="false" layoutX="65.0" layoutY="90.0" style="-fx-background-radius: 20;">
+         <effect>
+            <InnerShadow>
+               <input>
+                  <DropShadow />
+               </input>
+            </InnerShadow>
+         </effect></TextField>
+      <TextField fx:id="tfNombre" layoutX="65.0" layoutY="218.0" style="-fx-background-radius: 20;">
+         <effect>
+            <InnerShadow>
+               <input>
+                  <DropShadow />
+               </input>
+            </InnerShadow>
+         </effect></TextField>
+      <TextField fx:id="tfPosicion" layoutX="65.0" layoutY="342.0" style="-fx-background-radius: 20;">
+         <effect>
+            <InnerShadow>
+               <input>
+                  <DropShadow />
+               </input>
+            </InnerShadow>
+         </effect></TextField>
+      <TextField fx:id="tfDepartamento" layoutX="53.0" layoutY="464.0" prefHeight="25.0" prefWidth="174.0" style="-fx-background-radius: 20;">
+         <effect>
+            <DropShadow>
+               <input>
+                  <InnerShadow />
+               </input>
+            </DropShadow>
+         </effect></TextField>
+      <Button fx:id="btnGuardar" layoutX="454.0" layoutY="419.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="45.0" prefWidth="121.0" style="-fx-background-radius: 20; -fx-background-color: #b2c8d2;" text="Guardar">
          <font>
-            <Font size="30.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
-      </Label>
+         <effect>
+            <DropShadow>
+               <input>
+                  <InnerShadow />
+               </input>
+            </DropShadow>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btnEliminar" layoutX="582.0" layoutY="419.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="45.0" prefWidth="121.0" style="-fx-background-radius: 20; -fx-background-color: #b2c8d2;" text="Eliminar">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <effect>
+            <DropShadow>
+               <input>
+                  <InnerShadow />
+               </input>
+            </DropShadow>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btnLimpiar" layoutX="713.0" layoutY="419.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="45.0" prefWidth="121.0" style="-fx-background-radius: 20; -fx-background-color: #b2c8d2;" text="Vaciar">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <effect>
+            <DropShadow>
+               <input>
+                  <InnerShadow>
+                     <input>
+                        <Bloom threshold="0.77" />
+                     </input>
+                  </InnerShadow>
+               </input>
+            </DropShadow>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <TextField fx:id="tfBuscar" layoutX="540.0" layoutY="152.0" prefHeight="34.0" prefWidth="194.0" style="-fx-background-radius: 20;">
+         <effect>
+            <InnerShadow />
+         </effect></TextField>
+      <Button fx:id="btnRegresar" layoutX="32.0" layoutY="534.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="45.0" prefWidth="143.0" style="-fx-background-radius: 20; -fx-background-color: #b2c8d2;" text="Regresar">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <effect>
+            <DropShadow>
+               <input>
+                  <Bloom threshold="0.77">
+                     <input>
+                        <InnerShadow />
+                     </input>
+                  </Bloom>
+               </input>
+            </DropShadow>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btnBuscar" layoutX="746.0" layoutY="150.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="34.0" prefWidth="121.0" style="-fx-background-radius: 20; -fx-background-color: #b2c8d2;" text="Buscar">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="27.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/BuscarIcono.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <effect>
+            <DropShadow>
+               <input>
+                  <InnerShadow>
+                     <input>
+                        <Bloom threshold="0.79" />
+                     </input>
+                  </InnerShadow>
+               </input>
+            </DropShadow>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <TableView fx:id="tblEmpleados" layoutX="460.0" layoutY="202.0" onMouseClicked="#cargarForm" prefHeight="200.0" prefWidth="398.0">
+         <columns>
+            <TableColumn fx:id="colId" prefWidth="75.0" text="ID" />
+            <TableColumn fx:id="colNombre" prefWidth="111.0" text="Nombre" />
+            <TableColumn fx:id="colPosicion" prefWidth="96.0" text="Posicion" />
+            <TableColumn fx:id="colDepartamento" prefWidth="118.0" text="Departamento" />
+         </columns>
+      </TableView>
    </children>
 </AnchorPane>

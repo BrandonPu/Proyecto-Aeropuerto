@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 import com.aeropuerto.webapp.Aeropuerto.model.Empleado;
 import com.aeropuerto.webapp.Aeropuerto.repository.EmpleadoRepository;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+
 @Service
 public class EmpleadoService implements IEmpleadoService{
     @Autowired
@@ -29,6 +32,7 @@ public class EmpleadoService implements IEmpleadoService{
             empleadoRepository.save(empleado);
             return true;
         } else {
+            mostrarAlerta("Posición no válida", "Posición no válida", "La posición del empleado no es correcta. Solo Gerente, Desarrollador, Limpieza, Piloto, Copiloto y Asistente Son Validos");
             return false;
         }
     }
@@ -49,5 +53,13 @@ public class EmpleadoService implements IEmpleadoService{
             }
         }
         return flag;
+    }
+
+    private void mostrarAlerta(String titulo, String cabecera, String contenido) {
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setTitle(titulo);
+        alert.setHeaderText(cabecera);
+        alert.setContentText(contenido);
+        alert.showAndWait();
     }
 }
