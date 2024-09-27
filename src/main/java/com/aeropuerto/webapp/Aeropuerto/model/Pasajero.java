@@ -24,4 +24,10 @@ public class Pasajero {
     private String nacionalidad;
     @ManyToOne(fetch = FetchType.EAGER)
     private Vuelo vuelo;
+
+    @Override
+    public String toString() {
+        return "Id: " + id + " | " + "Nombre: " + nombre + " | " + "Apellido: " + apellido + " | " + "Nacionalidad: " + nacionalidad + " | " + "Vuelo: " + vuelo;
+    }
+
 }

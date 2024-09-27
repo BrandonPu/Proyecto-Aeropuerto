@@ -62,7 +62,6 @@ public class PasajeroFXController implements Initializable{
         cmbVuelo.setItems(FXCollections.observableList(vueloService.listarVuelos()));
     } 
 
-    //handle
     public void handleButtonAction(ActionEvent event){
         if(event.getSource() == btnGuardar){
             if(tfId.getText().isBlank()){
@@ -80,11 +79,11 @@ public class PasajeroFXController implements Initializable{
                     cargarDatos();
                 }else{
                     tblPasajeros.setItems(listarPasajeros());
-                    colId.setCellValueFactory(new PropertyValueFactory<Vuelo, Long>("id"));
-                    colNombre.setCellValueFactory(new PropertyValueFactory<Vuelo, String>("nombre"));
-                    colApellido.setCellValueFactory(new PropertyValueFactory<Vuelo, String>("apellido"));
-                    colNacionalidad.setCellValueFactory(new PropertyValueFactory<Vuelo, String>("nacionalidad"));
-                    colVuelo.setCellValueFactory(new PropertyValueFactory<Vuelo, String>("vuelo"));
+                    colId.setCellValueFactory(new PropertyValueFactory<Pasajero, Long>("id"));
+                    colNombre.setCellValueFactory(new PropertyValueFactory<Pasajero, String>("nombre"));
+                    colApellido.setCellValueFactory(new PropertyValueFactory<Pasajero, String>("apellido"));
+                    colNacionalidad.setCellValueFactory(new PropertyValueFactory<Pasajero, String>("nacionalidad"));
+                    colVuelo.setCellValueFactory(new PropertyValueFactory<Pasajero, String>("vuelo"));
                 }
             }else if(event.getSource() == btnRegresar){
                 stage.indexView();
@@ -95,11 +94,11 @@ public class PasajeroFXController implements Initializable{
 
     public void cargarDatos(){
         tblPasajeros.setItems(listarPasajeros());
-        colId.setCellValueFactory(new PropertyValueFactory<Vuelo, Long>("id"));
-        colNombre.setCellValueFactory(new PropertyValueFactory<Vuelo, String>("nombre"));
-        colApellido.setCellValueFactory(new PropertyValueFactory<Vuelo, String>("apellido"));
-        colNacionalidad.setCellValueFactory(new PropertyValueFactory<Vuelo, String>("nacionalidad"));
-        colVuelo.setCellValueFactory(new PropertyValueFactory<Vuelo, String>("vuelo"));
+        colId.setCellValueFactory(new PropertyValueFactory<Pasajero, Long>("id"));
+        colNombre.setCellValueFactory(new PropertyValueFactory<Pasajero, String>("nombre"));
+        colApellido.setCellValueFactory(new PropertyValueFactory<Pasajero, String>("apellido"));
+        colNacionalidad.setCellValueFactory(new PropertyValueFactory<Pasajero, String>("nacionalidad"));
+        colVuelo.setCellValueFactory(new PropertyValueFactory<Pasajero, String>("vuelo"));
     }
 
     public void cargarForm(){

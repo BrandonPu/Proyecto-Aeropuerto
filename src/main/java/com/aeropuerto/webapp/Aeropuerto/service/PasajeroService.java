@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 import com.aeropuerto.webapp.Aeropuerto.model.Pasajero;
 import com.aeropuerto.webapp.Aeropuerto.repository.PasajeroRepository;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+
 @Service
 public class PasajeroService implements IPasajeroService{
 
@@ -30,6 +33,7 @@ public class PasajeroService implements IPasajeroService{
             pasajeroRepository.save(pasajero);
             return true;
         } else {
+            mostrarAlerta("Carácter no válida", "Carácter no válida", "El carácter del nombre que ingresó no es correcta. No se permiten números en el nombre o apellido del Pasajero.");
             return false;
         }
     }
@@ -51,4 +55,13 @@ public class PasajeroService implements IPasajeroService{
         }
         return flag;
     }
+
+    private void mostrarAlerta(String titulo, String cabecera, String contenido) {
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setTitle(titulo);
+        alert.setHeaderText(cabecera);
+        alert.setContentText(contenido);
+        alert.showAndWait();
+    }
+
 }
