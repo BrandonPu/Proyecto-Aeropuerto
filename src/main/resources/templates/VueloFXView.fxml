@@ -23,25 +23,25 @@
             <Font size="30.0" />
          </font>
       </Label>
-      <TextField fx:id="tfId" editable="false" layoutX="48.0" layoutY="129.0" prefHeight="25.0" prefWidth="200.0" style="-fx-background-radius: 20;" />
+      <TextField fx:id="tfId" editable="false" layoutX="48.0" layoutY="129.0" prefHeight="25.0" prefWidth="200.0" promptText="ID" style="-fx-background-radius: 20;" />
       <Label layoutX="49.0" layoutY="155.0" text="Número de Vuelo:">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <TextField fx:id="tfNumero" layoutX="48.0" layoutY="201.0" prefHeight="25.0" prefWidth="200.0" style="-fx-background-radius: 20;" />
+      <TextField fx:id="tfNumero" layoutX="48.0" layoutY="201.0" prefHeight="25.0" prefWidth="200.0" promptText="Ingrese el número de vuelo." style="-fx-background-radius: 20;" />
       <Label layoutX="49.0" layoutY="227.0" text="Estado de Vuelo:">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <TextField fx:id="tfEstado" layoutX="48.0" layoutY="273.0" prefHeight="25.0" prefWidth="200.0" style="-fx-background-radius: 20;" />
+      <TextField fx:id="tfEstado" layoutX="48.0" layoutY="273.0" prefHeight="25.0" prefWidth="200.0" promptText="Ingrese el estado del vuelo." style="-fx-background-radius: 20;" />
       <Label layoutX="49.0" layoutY="299.0" text="Fecha de Salida:">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <TextField fx:id="tfFechaSalida" layoutX="48.0" layoutY="345.0" prefHeight="25.0" prefWidth="200.0" style="-fx-background-radius: 20;" />
+      <TextField fx:id="tfFechaSalida" layoutX="48.0" layoutY="345.0" prefHeight="25.0" prefWidth="200.0" promptText="yyyy-mm-dd" style="-fx-background-radius: 20;" />
       <Label layoutX="49.0" layoutY="371.0" text="Aerolínea:">
          <font>
             <Font size="30.0" />
@@ -67,7 +67,7 @@
       <Button fx:id="btnGuardar" layoutX="261.0" layoutY="515.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="130.0" style="-fx-background-radius: 25; -fx-background-color: #b2c8d2;" text="Guardar" />
       <Button fx:id="btnVaciar" layoutX="401.0" layoutY="515.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="130.0" style="-fx-background-radius: 25; -fx-background-color: #b2c8d2;" text="Vaciar Formulario" />
       <Button fx:id="btnEliminar" layoutX="541.0" layoutY="515.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="130.0" style="-fx-background-radius: 25; -fx-background-color: #b2c8d2;" text="Eliminar" />
-      <TextField fx:id="tfBuscar" layoutX="620.0" layoutY="135.0" prefHeight="25.0" prefWidth="200.0" style="-fx-background-radius: 20;" />
+      <TextField fx:id="tfBuscar" layoutX="620.0" layoutY="135.0" prefHeight="25.0" prefWidth="200.0" promptText="Ingrese el ID" style="-fx-background-radius: 20;" />
       <Button fx:id="btnBuscar" layoutX="829.0" layoutY="131.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="85.0" style="-fx-background-radius: 20; -fx-background-color: #b2c8d2;" text="Buscar" textAlignment="CENTER">
          <graphic>
             <ImageView fitHeight="25.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true">

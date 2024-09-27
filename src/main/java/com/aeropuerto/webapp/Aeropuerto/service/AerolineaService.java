@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.aeropuerto.webapp.Aeropuerto.model.Aerolinea;
 import com.aeropuerto.webapp.Aeropuerto.repository.AerolineaRepository;
+import com.aeropuerto.webapp.Aeropuerto.utils.AeropuertoAlert;
 
 @Service
 public class AerolineaService implements IAerolineaService{
@@ -28,8 +29,10 @@ public class AerolineaService implements IAerolineaService{
     public Boolean guardarAerolinea(Aerolinea aerolinea) {
         if (!verificarNombreAerolinea(aerolinea)) {
             aerolineaRepository.save(aerolinea);
+            AeropuertoAlert.getInstance().mostrarAlerta(2010);
             return true;
         } else {
+            AeropuertoAlert.getInstance().mostrarAlerta(2002);
             return false;
         }
     }
