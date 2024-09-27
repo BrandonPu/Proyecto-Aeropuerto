@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 import com.aeropuerto.webapp.Aeropuerto.model.Aerolinea;
 import com.aeropuerto.webapp.Aeropuerto.repository.AerolineaRepository;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+
 @Service
 public class AerolineaService implements IAerolineaService{
 
@@ -24,15 +27,18 @@ public class AerolineaService implements IAerolineaService{
         return aerolineaRepository.findById(id).orElse(null);
     }
 
+    
     @Override
     public Boolean guardarAerolinea(Aerolinea aerolinea) {
-        if (!verificarNombreAerolinea(aerolinea)) {
+        if (verificarNombreAerolinea(aerolinea)) {
             aerolineaRepository.save(aerolinea);
             return true;
         } else {
+            mostrarAlerta("Aerolinea no válida", "Aerolinea no válida", "El Nombre De Aerolinea Ya Existe");
             return false;
         }
     }
+
 
     @Override
     public void eliminarAerolinea(Aerolinea aerolinea) {
@@ -42,13 +48,23 @@ public class AerolineaService implements IAerolineaService{
     @Override
     public Boolean verificarNombreAerolinea(Aerolinea nuevaAerolinea) {
         List<Aerolinea> aerolineas = listarAerolineas();
-        Boolean flag = false;
+        
         for (Aerolinea aerolinea : aerolineas) {
-            if (nuevaAerolinea.getNombre().equalsIgnoreCase(aerolinea.getNombre()) && !aerolinea.getId().equals(nuevaAerolinea.getId())) {
-                flag = true;
+            if (nuevaAerolinea.getNombre().equalsIgnoreCase(aerolinea.getNombre()) 
+                    && !aerolinea.getId().equals(nuevaAerolinea.getId())) {
+                return false; 
             }
         }
-        return flag;
+        return true; 
+    }
+
+
+     private void mostrarAlerta(String titulo, String cabecera, String contenido) {
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setTitle(titulo);
+        alert.setHeaderText(cabecera);
+        alert.setContentText(contenido);
+        alert.showAndWait();
     }
 
 }
