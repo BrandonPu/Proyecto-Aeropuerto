@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aeropuerto.webapp.Aeropuerto.controller.FXController.LoginFXController">
+   <children>
+      <Text layoutX="37.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
+         <font>
+            <Font size="57.0" />
+         </font>
+      </Text>
+      <Text layoutX="14.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario:" wrappingWidth="186.94337463378906">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="14.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña:" wrappingWidth="186.94337463378906">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <TextField fx:id="tfUser" layoutX="14.0" layoutY="192.0" prefHeight="35.0" prefWidth="214.0" />
+      <PasswordField fx:id="tfPassword" layoutX="14.0" layoutY="288.0" prefHeight="35.0" prefWidth="214.0" />
+      <Button fx:id="btnIniciar" layoutX="51.0" layoutY="460.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="46.0" prefWidth="140.0" text="Iniciar Sesion">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Text layoutX="672.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Proyecto Aeropuerto">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
