@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.aeropuerto.webapp.Aeropuerto.model.Vuelo;
 import com.aeropuerto.webapp.Aeropuerto.repository.VueloRepository;
+import com.aeropuerto.webapp.Aeropuerto.util.AeropuertoAlert;
 
 @Service
 public class VueloService implements IVueloService {
@@ -28,8 +29,10 @@ public class VueloService implements IVueloService {
     public Boolean guardarVuelo(Vuelo vuelo) {
         if (!verificarDatoNull(vuelo)) {
             vueloRepository.save(vuelo);
+            AeropuertoAlert.getInstance().mostrarAlerta(2010);
             return true;
         } else {
+            AeropuertoAlert.getInstance().mostrarAlerta(2001);
             return false;
         }
     }

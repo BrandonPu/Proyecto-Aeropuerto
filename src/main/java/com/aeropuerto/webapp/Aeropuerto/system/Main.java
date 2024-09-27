@@ -11,6 +11,7 @@ import com.aeropuerto.webapp.Aeropuerto.controller.FXController.AerolineaFXContr
 import com.aeropuerto.webapp.Aeropuerto.controller.FXController.AeropuertoFXController;
 import com.aeropuerto.webapp.Aeropuerto.controller.FXController.EmpleadoFXController;
 import com.aeropuerto.webapp.Aeropuerto.controller.FXController.IndexController;
+import com.aeropuerto.webapp.Aeropuerto.controller.FXController.LoginFXController;
 import com.aeropuerto.webapp.Aeropuerto.controller.FXController.PasajeroFXController;
 import com.aeropuerto.webapp.Aeropuerto.controller.FXController.TerminalFXController;
 import com.aeropuerto.webapp.Aeropuerto.controller.FXController.VueloFXController;
@@ -41,7 +42,8 @@ public class Main extends Application{
         stage.setTitle("Aeropuerto");
         Image icon = new Image(Main.class.getResourceAsStream("/image/Logo.png"));
         stage.getIcons().add(icon);
-        indexView();
+        loginView();
+        //indexView();
         stage.show();
     }
 
@@ -61,6 +63,15 @@ public class Main extends Application{
         resultado = (Initializable)loader.getController();
 
         return resultado;
+    }
+
+    public void loginView(){
+        try {
+            LoginFXController loginView = (LoginFXController)switchScene("LoginFXView.fxml", 400, 666);
+            loginView.setStage(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void indexView(){

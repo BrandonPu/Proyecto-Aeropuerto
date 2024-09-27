@@ -1,16 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aeropuerto.webapp.Aeropuerto.controller.FXController.PasajeroFXController">
    <children>
-      <Label layoutX="444.0" layoutY="277.0" text="Pasajero">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Label>
+      <ImageView fitHeight="600.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/MenuPasajeros.png" />
+         </image></ImageView>
+      <TextField fx:id="tfBuscar" layoutX="446.0" layoutY="165.0" prefHeight="34.0" prefWidth="252.0" promptText="Ingrese el ID del pasajero" style="-fx-background-radius: 15;" />
+      <TableView fx:id="tblPasajeros" layoutX="15.0" layoutY="199.0" onMouseClicked="#cargarForm" prefHeight="300.0" prefWidth="750.0">
+        <columns>
+          <TableColumn fx:id="colId" prefWidth="50.0" text="ID" />
+          <TableColumn fx:id="colNombre" prefWidth="175.0" text="Nombre" />
+            <TableColumn fx:id="colApellido" prefWidth="175.0" text="Apellido" />
+            <TableColumn fx:id="colNacionalidad" prefWidth="175.0" text="Nacionalidad" />
+            <TableColumn fx:id="colVuelo" prefWidth="175.0" text="Vuelo" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnGuardar" layoutX="776.0" layoutY="410.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="45.0" prefWidth="90.0" style="-fx-background-radius: 15;" text="Guardar" />
+      <Button fx:id="btnBuscar" layoutX="708.0" layoutY="165.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="62.0" style="-fx-background-radius: 15;" />
+      <TextField fx:id="tfNombre" layoutX="408.0" layoutY="60.0" prefHeight="34.0" prefWidth="171.0" style="-fx-background-radius: 15;" />
+      <ImageView fitHeight="34.0" fitWidth="24.0" layoutX="727.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/BuscarIcono.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnVaciar" layoutX="637.0" layoutY="515.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="45.0" prefWidth="90.0" style="-fx-background-radius: 15; -fx-background-color: #EA7E7E;" text="Vaciar" />
+      <Button fx:id="btnEliminar" layoutX="527.0" layoutY="515.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="45.0" prefWidth="90.0" style="-fx-background-radius: 15;" text="Eliminar" />
+      <Button fx:id="btnRegresar" layoutX="20.0" layoutY="515.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="45.0" prefWidth="90.0" style="-fx-background-radius: 15;" text="Regresar" />
+      <ComboBox fx:id="cmbVuelo" layoutX="774.0" layoutY="315.0" prefHeight="34.0" prefWidth="184.0" />
+      <TextField fx:id="tfApellido" layoutX="590.0" layoutY="60.0" prefHeight="34.0" prefWidth="184.0" style="-fx-background-radius: 15;" />
+      <TextField fx:id="tfId" editable="false" layoutX="315.0" layoutY="60.0" prefHeight="34.0" prefWidth="75.0" style="-fx-background-radius: 15;" />
+      <TextField fx:id="tfNacionalidad" layoutX="788.0" layoutY="60.0" prefHeight="34.0" prefWidth="184.0" style="-fx-background-radius: 15;" />
    </children>
 </AnchorPane>

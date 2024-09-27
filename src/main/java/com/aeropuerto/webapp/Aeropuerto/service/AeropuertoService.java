@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.aeropuerto.webapp.Aeropuerto.model.Aeropuerto;
 import com.aeropuerto.webapp.Aeropuerto.repository.AeropuertoRepository;
+import com.aeropuerto.webapp.Aeropuerto.util.AeropuertoAlert;
 
 @Service
 public class AeropuertoService implements IAeropuertoService{
@@ -28,8 +29,10 @@ public class AeropuertoService implements IAeropuertoService{
     public Boolean guardarAeropuerto(Aeropuerto aeropuerto) {
         if (!verificarIataDuplicado(aeropuerto)) {
             aeropuertoRepository.save(aeropuerto);
+            AeropuertoAlert.getInstance().mostrarAlerta(2010);
             return true;
         } else {
+            AeropuertoAlert.getInstance().mostrarAlerta(2003);
             return false;
         }
     }
